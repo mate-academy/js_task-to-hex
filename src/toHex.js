@@ -16,7 +16,7 @@
  * @return {string}
  */
 function toHex(value) {
-  return '1a4';
+  // write code here
 }
 
 module.exports = toHex;
