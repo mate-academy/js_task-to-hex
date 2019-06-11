@@ -15,7 +15,6 @@
  * Conversion algorithm:
  * 50 === '32'
  *
- *
  * @param {number} value
  *
  * @return {string}
