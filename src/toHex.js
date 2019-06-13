@@ -19,8 +19,21 @@
  *
  * @return {string}
  */
-function toHex(value) {
-  // write code here
-}
+const toHex = (value) => {
+  let color = value;
+  const hex = [];
+  const letters = ['a', 'b', 'c', 'd', 'e', 'f'];
 
+  do {
+    const remainder = color % 16;
+    color = Math.floor(color / 16);
+    if (remainder > 9) {
+      hex.unshift(letters[remainder - 10]);
+      continue;
+    }
+    hex.unshift(remainder);
+  } while (color);
+
+  return hex.join('');
+};
 module.exports = toHex;
