@@ -21,6 +21,43 @@
  */
 function toHex(value) {
   // write code here
+  let decimalNumber = value;
+  const hexArray = [];
+
+  if (decimalNumber === 0) {
+    hexArray.push(decimalNumber);
+  }
+
+  while (decimalNumber > 0) {
+    const hexDigit = decimalNumber % 16;
+
+    switch (hexDigit) {
+      case 15 :
+        hexArray.unshift('f');
+        break;
+      case 14 :
+        hexArray.unshift('e');
+        break;
+      case 13 :
+        hexArray.unshift('d');
+        break;
+      case 12 :
+        hexArray.unshift('c');
+        break;
+      case 11 :
+        hexArray.unshift('b');
+        break;
+      case 10 :
+        hexArray.unshift('a');
+        break;
+      default :
+        hexArray.unshift(hexDigit);
+    }
+
+    decimalNumber = Math.floor(decimalNumber / 16);
+  }
+
+  return hexArray.join('');
 }
 
 module.exports = toHex;
