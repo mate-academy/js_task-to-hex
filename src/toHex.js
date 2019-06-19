@@ -21,6 +21,33 @@
  */
 function toHex(value) {
   // write code here
+  if (value === 0) {
+    return '0';
+  }
+
+  let result = '';
+  let decimal = value;
+  while (decimal > 0) {
+    result = toHexChar(decimal % 16) + result;
+    decimal = Math.floor(decimal / 16);
+  }
+
+  return result;
+}
+
+function toHexChar(char) {
+  if (char < 10) {
+    return char;
+  }
+
+  switch (char) {
+    case 10: return 'A';
+    case 11: return 'B';
+    case 12: return 'C';
+    case 13: return 'D';
+    case 14: return 'E';
+    case 15: return 'F';
+  }
 }
 
 module.exports = toHex;
