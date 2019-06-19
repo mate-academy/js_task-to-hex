@@ -21,6 +21,7 @@
  */
 function toHex(value) {
   // write code here
+  return value.toString(16);
 }
 
 module.exports = toHex;
