@@ -20,7 +20,23 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const hexArray = [];
+  const hexLetters = ['a', 'b', 'c', 'd', 'e', 'f'];
+  let remainder = 0;
+  let temp = value;
+  if (value === 0) {
+    return '0';
+  }
+  for (let i = 0; i <= temp; i++) {
+    remainder = temp % 16;
+    temp = parseInt(temp / 16);
+    if (remainder > 9) {
+      hexArray.push(hexLetters[remainder - 10]);
+    } else {
+      hexArray.push(remainder);
+    }
+  }
+  return hexArray.reverse().join('');
 }
 
 module.exports = toHex;
