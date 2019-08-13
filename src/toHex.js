@@ -20,7 +20,23 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const arr = [];
+
+  if (value === 0) {
+    return '0';
+  } else if (Math.floor(value / 16) < 10) {
+    arr.push(Math.floor(value / 16));
+  } else {
+    arr.push(String.fromCharCode(value / 16 + 87));
+  }
+
+  if (Math.floor(value % 16) < 10) {
+    arr.push(Math.floor(value / 16));
+  } else {
+    arr.push(String.fromCharCode(value % 16 + 87));
+  }
+
+  return arr.join('');
 }
 
 module.exports = toHex;
