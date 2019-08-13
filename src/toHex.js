@@ -20,7 +20,43 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const hexArr = [];
+  let num = value;
+
+  if (num === 0) {
+    return '0';
+  }
+
+  while (num >= 0) {
+    if (Math.floor(num / 16) > 0) {
+      hexArr.push(num % 16);
+      num = Math.floor(num / 16);
+    }
+    hexArr.push(num % 16);
+    break;
+  }
+
+  return hexArr
+    .reverse()
+    .map(item => {
+      switch (item) {
+        case 10:
+          return 'a';
+        case 11:
+          return 'b';
+        case 12:
+          return 'c';
+        case 13:
+          return 'd';
+        case 14:
+          return 'e';
+        case 15:
+          return 'f';
+        default:
+          return item;
+      }
+    })
+    .join('');
 }
 
 module.exports = toHex;
