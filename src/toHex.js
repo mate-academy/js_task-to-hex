@@ -20,7 +20,40 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const result = [];
+  let number = value;
+  if (number === 0) {
+    return '0';
+  }
+  while (number >= 0) {
+    if (Math.floor(number / 16) > 0) {
+      result.push(number % 16);
+      number = Math.floor(number / 16);
+    }
+    result.push(number % 16);
+    break;
+  }
+  return result
+    .reverse()
+    .map(elem => {
+      switch (elem) {
+        case 10:
+          return 'a';
+        case 11:
+          return 'b';
+        case 12:
+          return 'c';
+        case 13:
+          return 'd';
+        case 14:
+          return 'e';
+        case 15:
+          return 'f';
+        default:
+          return elem;
+      }
+    })
+    .join('');
 }
 
 module.exports = toHex;
