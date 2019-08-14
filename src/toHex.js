@@ -20,7 +20,9 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const numberToHex = value.toString(16);
+
+  return numberToHex;
 }
 
 module.exports = toHex;
