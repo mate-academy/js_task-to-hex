@@ -20,9 +20,25 @@
  * @return {string}
  */
 function toHex(value) {
-  const numberToHex = value.toString(16);
+  let num = value;
+  const result = [];
 
-  return numberToHex;
+  while (num > 0) {
+    const tempResult = num % 16;
+
+    if (tempResult < 10) {
+      result.push(tempResult);
+    } else {
+      result.push(String.fromCharCode(tempResult + 87));
+    }
+    num = Math.floor(num / 16);
+  }
+
+  if (result.length === 0) {
+    return '0';
+  }
+
+  return result.reverse().join('');
 }
 
 module.exports = toHex;
