@@ -25,12 +25,12 @@ function toHex(value) {
   const hexScale = '0123456789ABCDEF';
   let number = value;
 
-  while (number > hex) {
+  while (number >= hex) {
     resultArr.push(hexScale[number % hex]);
     number = parseInt(number / hex);
   }
 
-  resultArr.push(number);
+  resultArr.push(hexScale[number]);
   return resultArr.reverse().join('');
 }
 
