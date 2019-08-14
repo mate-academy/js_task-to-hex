@@ -20,18 +20,18 @@
  * @return {string}
  */
 function toHex(value) {
-  const resultArr = [];
+  const codeSymbols = [];
   const hex = 16;
   const hexScale = '0123456789ABCDEF';
   let number = value;
 
   while (number >= hex) {
-    resultArr.push(hexScale[number % hex]);
+    codeSymbols.push(hexScale[number % hex]);
     number = parseInt(number / hex);
   }
 
-  resultArr.push(hexScale[number]);
-  return resultArr.reverse().join('');
+  codeSymbols.push(hexScale[number]);
+  return codeSymbols.reverse().join('');
 }
 
 module.exports = toHex;
