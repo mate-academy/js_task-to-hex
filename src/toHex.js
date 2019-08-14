@@ -20,7 +20,7 @@
  * @return {string}
  */
 function toHex(value) {
-  let result = '';
+  let hexNumberInString = '';
   let number = value;
 
   do {
@@ -51,11 +51,11 @@ function toHex(value) {
           break;
       }
     }
-    result = `${remainder}${result}`;
+    hexNumberInString = `${remainder}${hexNumberInString}`;
     number = Math.trunc(number / 16);
   } while (number);
 
-  return result;
+  return hexNumberInString;
 }
 
 module.exports = toHex;
