@@ -22,6 +22,7 @@
 function toHex(value) {
   const hexArr = [];
   let num = value;
+  const hexNums = '0123456789abcdef'.split('');
 
   if (num === 0) {
     return '0';
@@ -37,25 +38,8 @@ function toHex(value) {
   }
 
   return hexArr
+    .map(element => hexNums[element])
     .reverse()
-    .map(item => {
-      switch (item) {
-        case 10:
-          return 'a';
-        case 11:
-          return 'b';
-        case 12:
-          return 'c';
-        case 13:
-          return 'd';
-        case 14:
-          return 'e';
-        case 15:
-          return 'f';
-        default:
-          return item;
-      }
-    })
     .join('');
 }
 
