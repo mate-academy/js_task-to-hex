@@ -20,7 +20,18 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  let wholePart = value;
+  const result = [];
+  const divider = 16;
+
+  while (wholePart !== 0) {
+    const tmp = wholePart % divider;
+
+    result.unshift(tmp < 10 ? tmp : String.fromCharCode(tmp + 87));
+    wholePart = Math.floor(wholePart / divider);
+  }
+
+  return result.length === 0 ? '0' : result.join('');
 }
 
 module.exports = toHex;
