@@ -20,10 +20,6 @@
  * @return {string}
  */
 function toHex(value) {
-  if (value === 0) {
-    return '0';
-  }
-
   let wholePart = value;
   const result = [];
   const divider = 16;
@@ -35,7 +31,7 @@ function toHex(value) {
     wholePart = Math.floor(wholePart / divider);
   }
 
-  return result.join('');
+  return result.length === 0 ? '0' : result.join('');
 }
 
 module.exports = toHex;
