@@ -3,7 +3,7 @@
 /**
  * The function takes a number and returns
  * its hexadecimal representation as a lower
- * case string. For example 256 is converted
+ * case string. For example 255 is converted
  * то 'ff'. You should not use .toString() method.
  *
  * Conversion algorithm:
