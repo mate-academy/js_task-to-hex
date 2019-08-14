@@ -20,7 +20,18 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const resultArr = [];
+  const hex = 16;
+  const hexScale = '0123456789ABCDEF';
+  let number = value;
+
+  while (number > hex) {
+    resultArr.push(hexScale[number % hex]);
+    number = parseInt(number / hex);
+  }
+
+  resultArr.push(number);
+  return resultArr.reverse().join('');
 }
 
 module.exports = toHex;
