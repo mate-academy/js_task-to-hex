@@ -20,7 +20,20 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const hexSymbols = ' 123456789abcdef'.split('');
+  const hexColor = [];
+  let iterations = value;
+
+  if (iterations === 0) {
+    return '0';
+  }
+
+  while (iterations) {
+    hexColor.push(iterations % 16);
+    iterations = Math.floor(iterations / 16);
+  }
+
+  return hexColor.map(elem => hexSymbols[elem]).reverse().join('');
 }
 
 module.exports = toHex;
