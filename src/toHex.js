@@ -20,7 +20,36 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  if (value === 0) {
+    return `${value}`;
+  };
+
+  let countValue = value;
+
+  const arrResultDivide = [];
+
+  while (Math.floor(countValue) !== 0) {
+    const countValueClone = Math.floor(countValue);
+    const takeDivide = Math.floor(countValue /= 16);
+    if (takeDivide === 0) {
+      arrResultDivide.push(countValueClone);
+    } else {
+      arrResultDivide.push(value - (takeDivide * 16));
+    }
+  }
+
+  const result = arrResultDivide
+    .reverse()
+    .map(num => {
+      if (num > 9) {
+        return String.fromCharCode(num + 87);
+      } else {
+        return num;
+      }
+    })
+    .join('');
+
+  return result;
 }
 
 module.exports = toHex;
