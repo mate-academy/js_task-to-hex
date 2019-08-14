@@ -20,7 +20,41 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  let changenValue = value;
+  const remaindersStorage = [];
+  while (changenValue > 1) {
+    switch (changenValue % 16) {
+      case 10 :
+        remaindersStorage.push('a');
+        break;
+
+      case 11:
+        remaindersStorage.push('b');
+        break;
+
+      case 12:
+        remaindersStorage.push('c');
+        break;
+
+      case 13:
+        remaindersStorage.push('d');
+        break;
+
+      case 14:
+        remaindersStorage.push('e');
+        break;
+
+      case 15:
+        remaindersStorage.push('f');
+        break;
+
+      default :
+        remaindersStorage.push(Math.floor(changenValue % 16));
+        break;
+    }
+    changenValue /= 16;
+  }
+  return value === 0 ? '0' : remaindersStorage.reverse().join('');
 }
 
 module.exports = toHex;
