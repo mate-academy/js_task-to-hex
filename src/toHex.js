@@ -20,40 +20,20 @@
  * @return {string}
  */
 function toHex(value) {
-  const result = [];
-  let number = value;
-  if (number === 0) {
+  const hexSymbols = ' 123456789abcdef'.split('');
+  const hexColor = [];
+  let iterations = value;
+
+  if (iterations === 0) {
     return '0';
   }
-  while (number >= 0) {
-    if (Math.floor(number / 16) > 0) {
-      result.push(number % 16);
-      number = Math.floor(number / 16);
-    }
-    result.push(number % 16);
-    break;
+
+  while (iterations) {
+    hexColor.push(iterations % 16);
+    iterations = Math.floor(iterations / 16);
   }
-  return result
-    .reverse()
-    .map(elem => {
-      switch (elem) {
-        case 10:
-          return 'a';
-        case 11:
-          return 'b';
-        case 12:
-          return 'c';
-        case 13:
-          return 'd';
-        case 14:
-          return 'e';
-        case 15:
-          return 'f';
-        default:
-          return elem;
-      }
-    })
-    .join('');
+
+  return hexColor.map(elem => hexSymbols[elem]).reverse().join('');
 }
 
 module.exports = toHex;
