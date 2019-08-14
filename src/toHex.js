@@ -20,7 +20,22 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const tempArray = [];
+  const hexTemplate = '0123456789abcdef'.split('');
+  let currentValue = value;
+
+  if (value === 0) {
+    return '0';
+  }
+
+  while (currentValue !== 0) {
+    tempArray.unshift(currentValue % 16);
+    currentValue = Math.floor(currentValue / 16);
+  }
+
+  return tempArray
+    .map(function(item) { return hexTemplate[item]; })
+    .join('');
 }
 
 module.exports = toHex;
