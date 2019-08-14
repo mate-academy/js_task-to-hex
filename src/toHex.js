@@ -20,7 +20,42 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  let result = '';
+  let number = value;
+
+  do {
+    let remainder = number % 16;
+
+    if (remainder) {
+      switch (remainder) {
+        case 16:
+          remainder = '10';
+          break;
+        case 15:
+          remainder = 'f';
+          break;
+        case 14:
+          remainder = 'e';
+          break;
+        case 13:
+          remainder = 'd';
+          break;
+        case 12:
+          remainder = 'c';
+          break;
+        case 11:
+          remainder = 'b';
+          break;
+        case 10:
+          remainder = 'a';
+          break;
+      }
+    }
+    result = `${remainder}${result}`;
+    number = Math.trunc(number / 16);
+  } while (number);
+
+  return result;
 }
 
 module.exports = toHex;
