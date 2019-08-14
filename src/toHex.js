@@ -20,22 +20,24 @@
  * @return {string}
  */
 function toHex(value) {
-  const arrOfHexDigits = [];
+  const hexDigits = [];
   let givenNumber = value;
-  let tmp = 0;
+  let remainder = 0;
 
   if (value !== 0) {
     while (givenNumber !== 0) {
-      tmp = givenNumber % 16;
+      remainder = givenNumber % 16;
 
-      arrOfHexDigits.push(tmp < 10 ? tmp : String.fromCharCode(tmp + 87));
+      hexDigits.push(remainder < 10
+        ? remainder
+        : String.fromCharCode(remainder + 87)
+      );
 
       givenNumber = Math.floor(givenNumber / 16);
     }
-    return arrOfHexDigits.reverse().join('');
-  } else {
-    return '0';
+    return hexDigits.reverse().join('');
   }
+  return '0';
 }
 
 module.exports = toHex;
