@@ -22,35 +22,23 @@
 function toHex(value) {
   let hexNumberInString = '';
   let number = value;
+  const remainderValues = {
+    16: '10',
+    15: 'f',
+    14: 'e',
+    13: 'd',
+    12: 'c',
+    11: 'b',
+    10: 'a',
+  };
 
   do {
     let remainder = number % 16;
 
-    if (remainder) {
-      switch (remainder) {
-        case 16:
-          remainder = '10';
-          break;
-        case 15:
-          remainder = 'f';
-          break;
-        case 14:
-          remainder = 'e';
-          break;
-        case 13:
-          remainder = 'd';
-          break;
-        case 12:
-          remainder = 'c';
-          break;
-        case 11:
-          remainder = 'b';
-          break;
-        case 10:
-          remainder = 'a';
-          break;
-      }
+    if (remainder > 9) {
+      remainder = remainderValues[remainder];
     }
+
     hexNumberInString = `${remainder}${hexNumberInString}`;
     number = Math.trunc(number / 16);
   } while (number);
