@@ -20,7 +20,18 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  let changedValue = value;
+  const remaindersStorage = [];
+  const lettersDigit = ['a', 'b', 'c', 'd', 'e', 'f'];
+  while (changedValue > 1) {
+    if (changedValue % 16 >= 10) {
+      remaindersStorage.push(lettersDigit[(changedValue % 16) - 10]);
+    } else {
+      remaindersStorage.push(Math.floor(changedValue % 16));
+    }
+    changedValue /= 16;
+  }
+  return value === 0 ? '0' : remaindersStorage.reverse().join('');
 }
 
 module.exports = toHex;
