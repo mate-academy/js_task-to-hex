@@ -20,7 +20,19 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const hexadecimalVal = [];
+  const divisor = 16;
+  let newVal = value;
+
+  while (newVal !== 0) {
+    const divided = newVal % divisor;
+    hexadecimalVal.unshift(divided < 10
+      ? divided
+      : String.fromCharCode(divided + 87));
+    newVal = Math.floor(newVal / divisor);
+  }
+
+  return hexadecimalVal.length === 0 ? '0' : hexadecimalVal.join('');
 }
 
 module.exports = toHex;
