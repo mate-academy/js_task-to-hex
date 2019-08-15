@@ -19,8 +19,24 @@
  *
  * @return {string}
  */
+
 function toHex(value) {
-  // write code here
+  const hexList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+    'a', 'b', 'c', 'd', 'e', 'f'];
+
+  let restValue = value;
+  const transformedToHex = [];
+
+  while (true) {
+    if (Math.floor(restValue / 16) > 0) {
+      transformedToHex.push(hexList[Math.floor(restValue % 16)]);
+      restValue = Math.floor(restValue / 16);
+    } else {
+      transformedToHex.push(hexList[Math.floor(restValue % 16)]);
+      break;
+    }
+  }
+  return transformedToHex.reverse().join('');
 }
 
 module.exports = toHex;
