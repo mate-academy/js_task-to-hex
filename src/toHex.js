@@ -20,18 +20,18 @@
  * @return {string}
  */
 function toHex(value) {
-  let num = value;
+  let numValue = value;
   const result = [];
 
-  while (num > 0) {
-    const tempResult = num % 16;
+  while (numValue > 0) {
+    const tempResult = numValue % 16;
 
     if (tempResult < 10) {
       result.push(tempResult);
     } else {
       result.push(String.fromCharCode(tempResult + 87));
     }
-    num = Math.floor(num / 16);
+    numValue = Math.floor(numValue / 16);
   }
 
   if (result.length === 0) {
