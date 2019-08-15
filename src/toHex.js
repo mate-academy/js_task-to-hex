@@ -26,22 +26,22 @@ function toHex(value) {
 
   let countValue = value;
 
-  const divideValue = [];
+  const divide = [];
 
   while (Math.floor(countValue) !== 0) {
     const countValueClone = Math.floor(countValue);
     const takeDivide = Math.floor(countValue /= 16);
     if (takeDivide === 0) {
-      divideValue.push(countValueClone);
+      divide.push(countValueClone);
     } else {
-      divideValue.push(value - (takeDivide * 16));
+      divide.push(value - (takeDivide * 16));
     }
   }
 
 
 
   return (
-    divideValue
+    divide
       .reverse()
       .map(num => {
         if (num > 9) {
