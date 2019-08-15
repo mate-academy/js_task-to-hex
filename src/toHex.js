@@ -38,8 +38,6 @@ function toHex(value) {
     }
   }
 
-
-
   return (
     divide
       .reverse()
