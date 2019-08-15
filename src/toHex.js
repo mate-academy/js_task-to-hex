@@ -20,20 +20,18 @@
  * @return {string}
  */
 function toHex(value) {
-  let val = value;
+  let currentValue = value;
 
-  if (val === 0) {
+  if (currentValue === 0) {
     return '0';
-  } else {
-    let hexNum = '';
-    const map = '0123456789ABCDEF';
+  } let hexNum = '';
+  const hexadecimalAlpabet = '0123456789ABCDEF';
 
-    while (val > 0) {
-      hexNum += map[val % 16];
-      val = Math.floor(val / 16);
-    }
-    return hexNum.split('').reverse().join('');
+  while (currentValue > 0) {
+    hexNum += hexadecimalAlpabet[currentValue % 16];
+    currentValue = Math.floor(currentValue / 16);
   }
+  return hexNum.split('').reverse().join('');
 }
 
 module.exports = toHex;
