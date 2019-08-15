@@ -20,10 +20,10 @@
  * @return {string}
  */
 function toHex(value) {
-  let changenValue = value;
+  let changedValue = value;
   const remaindersStorage = [];
-  while (changenValue > 1) {
-    switch (changenValue % 16) {
+  while (changedValue > 1) {
+    switch (changedValue % 16) {
       case 10 :
         remaindersStorage.push('a');
         break;
@@ -49,10 +49,10 @@ function toHex(value) {
         break;
 
       default :
-        remaindersStorage.push(Math.floor(changenValue % 16));
+        remaindersStorage.push(Math.floor(changedValue % 16));
         break;
     }
-    changenValue /= 16;
+    changedValue /= 16;
   }
   return value === 0 ? '0' : remaindersStorage.reverse().join('');
 }
