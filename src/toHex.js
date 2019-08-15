@@ -22,35 +22,12 @@
 function toHex(value) {
   let changedValue = value;
   const remaindersStorage = [];
+  const lettersDigit = ['a', 'b', 'c', 'd', 'e', 'f'];
   while (changedValue > 1) {
-    switch (changedValue % 16) {
-      case 10 :
-        remaindersStorage.push('a');
-        break;
-
-      case 11:
-        remaindersStorage.push('b');
-        break;
-
-      case 12:
-        remaindersStorage.push('c');
-        break;
-
-      case 13:
-        remaindersStorage.push('d');
-        break;
-
-      case 14:
-        remaindersStorage.push('e');
-        break;
-
-      case 15:
-        remaindersStorage.push('f');
-        break;
-
-      default :
-        remaindersStorage.push(Math.floor(changedValue % 16));
-        break;
+    if (changedValue % 16 >= 10) {
+      remaindersStorage.push(lettersDigit[(changedValue % 16) - 10]);
+    } else {
+      remaindersStorage.push(Math.floor(changedValue % 16));
     }
     changedValue /= 16;
   }
