@@ -20,7 +20,78 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  if (value < 1) {
+    return '0';
+  }
+
+  let converted = '';
+
+  const firstTimeDivide = Math.floor(value % 16);
+  const seconTimedDivide = Math.floor(value / 16) % 16;
+
+  switch (seconTimedDivide) {
+    case 0:
+      converted += '';
+      break;
+
+    case 10:
+      converted += 'a';
+      break;
+
+    case 11:
+      converted += 'b';
+      break;
+
+    case 12:
+      converted += 'c';
+      break;
+
+    case 13:
+      converted += 'd';
+      break;
+
+    case 14:
+      converted += 'e';
+      break;
+
+    case 15:
+      converted += 'f';
+      break;
+
+    default:
+      converted += seconTimedDivide;
+  }
+
+  switch (firstTimeDivide) {
+    case 10:
+      converted += 'a';
+      break;
+
+    case 11:
+      converted += 'b';
+      break;
+
+    case 12:
+      converted += 'c';
+      break;
+
+    case 13:
+      converted += 'd';
+      break;
+
+    case 14:
+      converted += 'e';
+      break;
+
+    case 15:
+      converted += 'f';
+      break;
+
+    default:
+      converted += firstTimeDivide;
+  }
+
+  return converted;
 }
 
 module.exports = toHex;
