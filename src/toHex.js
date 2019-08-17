@@ -20,7 +20,46 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  if (value === 0) {
+    return '0';
+  }
+  let decToNex = '';
+  let testValue = value;
+
+  while (testValue > 0) {
+    switch (testValue % 16) {
+      case 10:
+        decToNex = 'a' + decToNex;
+        break;
+
+      case 11:
+        decToNex = 'b' + decToNex;
+        break;
+
+      case 12:
+        decToNex = 'c' + decToNex;
+        break;
+
+      case 13:
+        decToNex = 'd' + decToNex;
+        break;
+
+      case 14:
+        decToNex = 'e' + decToNex;
+        break;
+
+      case 15:
+        decToNex = 'f' + decToNex;
+        break;
+
+      default:
+        decToNex = String(testValue % 16) + decToNex;
+    }
+
+    testValue = (testValue - testValue % 16) / 16;
+  }
+
+  return decToNex;
 }
 
 module.exports = toHex;
