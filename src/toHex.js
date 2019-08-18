@@ -20,7 +20,37 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  if (value === 0 || value === undefined) {
+    return '0';
+  }
+
+  const numbers = [];
+  let hexValue = '';
+  let decimalValue = value;
+  const hexMapping = new Map();
+  hexMapping.set(10, 'a');
+  hexMapping.set(11, 'b');
+  hexMapping.set(12, 'c');
+  hexMapping.set(13, 'd');
+  hexMapping.set(14, 'e');
+  hexMapping.set(15, 'f');
+
+  while (decimalValue / 16 !== 0) {
+    const remainder = decimalValue % 16;
+    if (remainder < 10) {
+      numbers.push(remainder);
+    } else {
+      numbers.push(hexMapping.get(remainder));
+    }
+    decimalValue = ~~(decimalValue / 16);
+  }
+
+  for (let i = numbers.length - 1; i >= 0; i--) {
+    const number = numbers[i];
+    hexValue += number;
+  }
+
+  return hexValue;
 }
 
 module.exports = toHex;
