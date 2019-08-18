@@ -36,13 +36,13 @@ function toHex(value) {
   hexMapping.set(15, 'f');
 
   while (decimalValue / 16 !== 0) {
-    const remainder = value % 16;
+    const remainder = decimalValue % 16;
     if (remainder < 10) {
-      numbers.push((remainder));
+      numbers.push(remainder);
     } else {
       numbers.push(hexMapping.get(remainder));
     }
-    decimalValue = parseInt(value / 16);
+    decimalValue = ~~(decimalValue / 16);
   }
 
   for (let i = numbers.length - 1; i >= 0; i--) {
