@@ -20,7 +20,20 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  let valueToHex = value;
+  const hexValues = '0123456789abcdef';
+  const result = [];
+
+  if (valueToHex === 0) {
+    return '0';
+  }
+
+  while (valueToHex > 0) {
+    result.push(hexValues[valueToHex % 16]);
+    valueToHex = Math.floor(valueToHex / 16);
+  }
+
+  return result.reverse().join('');
 }
 
 module.exports = toHex;
