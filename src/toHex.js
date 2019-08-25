@@ -20,7 +20,32 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
-}
+  if (value === 0) {
+    return '0';
+  }
+  let number = value;
+  let hex = ``;
+  const hexNumbers = {
+    '10': 'a',
+    '11': 'b',
+    '12': 'c',
+    '13': 'd',
+    '14': 'e',
+    '15': 'f',
+  };
 
+  while (number !== 0) {
+    const currentNumber = number % 16;
+    if (hexNumbers[currentNumber]) {
+      hex += hexNumbers[currentNumber];
+    }
+
+    if (currentNumber < 10) {
+      hex += currentNumber;
+    }
+    number = Math.floor(number / 16);
+  }
+
+  return hex.split('').reverse().join('');
+}
 module.exports = toHex;
