@@ -25,29 +25,21 @@ function toHex(value) {
   }
   let number = value;
   let hex = ``;
+  const hexNumbers = {
+    '10': 'a',
+    '11': 'b',
+    '12': 'c',
+    '13': 'd',
+    '14': 'e',
+    '15': 'f',
+  };
 
   while (number !== 0) {
     const currentNumber = number % 16;
-    switch (currentNumber) {
-      case 10:
-        hex += 'a';
-        break;
-      case 11:
-        hex += 'b';
-        break;
-      case 12:
-        hex += 'c';
-        break;
-      case 13:
-        hex += 'd';
-        break;
-      case 14:
-        hex += 'e';
-        break;
-      case 15:
-        hex += 'f';
-        break;
+    if (hexNumbers[currentNumber]) {
+      hex += hexNumbers[currentNumber];
     }
+
     if (currentNumber < 10) {
       hex += currentNumber;
     }
