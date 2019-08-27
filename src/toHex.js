@@ -23,6 +23,7 @@ function toHex(value) {
   if (value === 0) {
     return String(value);
   }
+
   const hex = [];
   let operateValue = 0;
   let convertibleValue = value;
@@ -38,13 +39,16 @@ function toHex(value) {
   while (convertibleValue > 0) {
     operateValue = convertibleValue - (Math.trunc(value / 16) * 16);
     convertibleValue = Math.trunc(convertibleValue / 16);
+
     if (operateValue >= 10) {
       hex.unshift(letterDesignations.get(operateValue));
     } else {
       hex.unshift(operateValue);
     }
+
     if (convertibleValue < 15) {
       convertibleValue = convertibleValue % 16;
+
       if (convertibleValue >= 10) {
         hex.unshift(letterDesignations.get(convertibleValue));
       } else {
