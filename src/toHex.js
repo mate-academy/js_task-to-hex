@@ -20,7 +20,42 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  if (value === 0) {
+    return '0';
+  }
+
+  const hexTable = {
+    '0': 0,
+    '1': 1,
+    '2': 2,
+    '3': 3,
+    '4': 4,
+    '5': 5,
+    '6': 6,
+    '7': 7,
+    '8': 8,
+    '9': 9,
+    '10': 'a',
+    '11': 'b',
+    '12': 'c',
+    '13': 'd',
+    '14': 'e',
+    '15': 'f',
+  };
+
+  let valueDec = value;
+  const finalStr = [];
+
+  while (valueDec > 1) {
+    finalStr.push(Math.floor(valueDec % 16));
+    valueDec /= 16;
+  }
+
+  for (let i = 0; i < finalStr.length; i++) {
+    finalStr[i] = String(hexTable[finalStr[i]]);
+  }
+
+  return finalStr.reverse().join('');
 }
 
 module.exports = toHex;
