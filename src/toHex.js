@@ -20,7 +20,25 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const HEX = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+  const valueHexArr = [];
+  let inputNumber = value;
+
+  while (inputNumber >= 0) {
+    const valueHex = inputNumber % 16;
+    valueHexArr.push(valueHex);
+
+    if (inputNumber < 16) { break; };
+    inputNumber = Math.trunc(inputNumber / 16);
+  }
+
+  for (let i = 0; i < valueHexArr.length; i++) {
+    if (valueHexArr[i] >= 10) {
+      valueHexArr[i] = HEX[valueHexArr[i]];
+    }
+  }
+
+  return valueHexArr.reverse().join('').toString(16);
 }
 
 module.exports = toHex;
