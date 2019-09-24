@@ -20,7 +20,16 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const hexChars = '0123456789ABCDEF';
+  const wholePart = Math.round(value / 16) - 1;
+  const remainder = value % 16;
+  const result = hexChars.charAt(wholePart) + hexChars.charAt(remainder);
+
+  if (value === 0) {
+    return '0';
+  }
+
+  return result;
 }
 
 module.exports = toHex;
