@@ -20,7 +20,20 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const countSystem = 16;
+  let newValue = value;
+
+  const arr = [];
+  for (newValue; newValue >= 16; newValue = newValue / countSystem) {
+    const remainder = newValue % countSystem;
+    if (remainder === 10) {
+      arr.unshift('a');
+    } else {
+      arr.unshift(remainder);
+    }
+  }
+
+  return Math.floor(newValue) + arr.join('');
 }
 
 module.exports = toHex;
