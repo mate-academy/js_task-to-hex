@@ -20,7 +20,15 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const firstStep = value % 16;
+  const secondStep = Math.floor(value / 16) % 16;
+  const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+
+  if (value < 16) {
+    return `${hex[secondStep]}`;
+  } else {
+    return `${hex[secondStep]}${hex[firstStep]}`;
+  }
 }
 
 module.exports = toHex;
