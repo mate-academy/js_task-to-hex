@@ -20,7 +20,28 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  if (value === 0) {
+    return '0';
+  }
+  const data = {
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+
+  };
+  let selfStop = value;
+  let selfGetReminder = value;
+  const arr = [];
+  while (Math.trunc(selfStop) !== 0) {
+    selfGetReminder = Math.trunc(selfStop) % 16;
+    arr.push(selfGetReminder);
+    selfStop = selfStop / 16;
+  }
+  return arr.reverse().map(item => item > 9
+    ? data[item] : item).join('');
 }
 
 module.exports = toHex;
