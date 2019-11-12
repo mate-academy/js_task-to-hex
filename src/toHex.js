@@ -20,7 +20,52 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const num1 = Math.floor(value / 16);
+  const num2 = value % 16;
+  let hex = '';
+  if ((num1 - num2) === 0) {
+    return num1 + '';
+  }
+
+  if (num1 === 10) {
+    hex += 'a';
+  } else if (num1 === 11) {
+    hex += 'b';
+  } else if (num1 === 12) {
+    hex += 'c';
+  } else if (num1 === 13) {
+    hex += 'd';
+  } else if (num1 === 14) {
+    hex += 'e';
+  } else if (num1 === 15) {
+    hex += 'f';
+  }
+  for (let i = 0; i <= 9; i++) {
+    if (num1 === i) {
+      hex += i + '';
+    }
+  }
+
+  if (num2 === 10) {
+    hex += 'a';
+  } else if (num2 === 11) {
+    hex += 'b';
+  } else if (num2 === 12) {
+    hex += 'c';
+  } else if (num2 === 13) {
+    hex += 'd';
+  } else if (num2 === 14) {
+    hex += 'e';
+  } else if (num2 === 15) {
+    hex += 'f';
+  }
+  for (let i = 0; i <= 9; i++) {
+    if (num2 === i) {
+      hex += i + '';
+    }
+  }
+
+  return hex;
 }
 
 module.exports = toHex;
