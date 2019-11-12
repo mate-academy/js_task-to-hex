@@ -22,24 +22,19 @@
 function toHex(value) {
   const hex = 16;
   const container = [];
-  const hexLetters = ['a', 'b', 'c', 'd', 'e', 'f'];
+  const hexLetters = '0123456789abcdef';
   let numberDecimal = value;
 
   if (numberDecimal !== 0) {
     while (Math.floor(numberDecimal) > 0) {
       const remainder = numberDecimal % hex;
-
-      if (remainder >= 10) {
-        container.push(hexLetters[remainder - 10]);
-      } else {
-        container.push(Math.floor(remainder));
-      }
-
+      container.push(hexLetters[Math.floor(remainder)]);
       numberDecimal /= hex;
     }
 
     return container.reverse().join('');
   }
+
   return '0';
 }
 
