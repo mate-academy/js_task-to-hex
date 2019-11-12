@@ -29,11 +29,9 @@ function toHex(value) {
   const hexadecimal = 16;
   const numberToLetter = 87;
 
-  while (inputValue > 1) {
-    converseToHex.push(Math.floor(inputValue
-      - Math.floor(inputValue / hexadecimal) * hexadecimal));
-
-    inputValue = inputValue / hexadecimal;
+  while (inputValue > 0) {
+    converseToHex.push(inputValue % hexadecimal);
+    inputValue = Math.floor(inputValue / hexadecimal);
   }
 
   const hex = converseToHex.reverse();
