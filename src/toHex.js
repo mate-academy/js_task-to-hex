@@ -20,7 +20,37 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const numbers = [];
+  let balance = value;
+
+  while (balance > 0) {
+    const divionBalance = balance % 16;
+    balance = Math.trunc(balance / 16);
+    switch (divionBalance) {
+      case 10:
+        numbers.push('a');
+        break;
+      case 11:
+        numbers.push('b');
+        break;
+      case 12:
+        numbers.push('c');
+        break;
+      case 13:
+        numbers.push('d');
+        break;
+      case 14:
+        numbers.push('e');
+        break;
+      case 15:
+        numbers.push('f');
+        break;
+      default:
+        numbers.push(divionBalance);
+    }
+  }
+  const stringNumber = String(numbers.reverse().join(''));
+  return (value === 0) ? '0' : stringNumber;
 }
 
 module.exports = toHex;
