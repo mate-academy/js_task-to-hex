@@ -19,8 +19,21 @@
  *
  * @return {string}
  */
+
 function toHex(value) {
-  // write code here
+  const hex = '0123456789ABCDEF';
+  let hexNum = '';
+  let currentValue = value;
+
+  if (value === 0) {
+    return '0';
+  }
+  while (currentValue > 0) {
+    hexNum += hex[currentValue % 16];
+    currentValue = Math.floor(currentValue / 16);
+  }
+
+  return hexNum.split('').reverse().join('');
 }
 
 module.exports = toHex;
