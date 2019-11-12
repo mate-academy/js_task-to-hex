@@ -20,7 +20,31 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const converseToHex = [];
+  if (value === 0) {
+    return '0';
+  }
+
+  let inputValue = value;
+  const hexadecimal = 16;
+  const numberToLetter = 87;
+
+  while (inputValue > 0) {
+    converseToHex.push(inputValue % hexadecimal);
+    inputValue = Math.floor(inputValue / hexadecimal);
+  }
+
+  const hex = converseToHex.reverse();
+  const result = [];
+
+  for (let i = 0; i < hex.length; i++) {
+    if (hex[i] < 10) {
+      result.push(hex[i]);
+    } else {
+      result.push(String.fromCharCode(hex[i] + numberToLetter));
+    }
+  }
+  return result.join('');
 }
 
 module.exports = toHex;
