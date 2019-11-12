@@ -21,6 +21,29 @@
  */
 function toHex(value) {
   // write code here
+  let entire = value;
+  const result = [];
+  let remainder;
+  const letters = {
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
+
+  do {
+    remainder = entire % 16;
+    if (remainder > 9) {
+      result.push(letters[remainder]);
+    } else {
+      result.push(remainder);
+    }
+    entire = Math.trunc(entire / 16);
+  } while (entire);
+
+  return result.reverse().join('');
 }
 
 module.exports = toHex;
