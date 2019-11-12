@@ -15,12 +15,22 @@
  *
  * 50 === '32'
  *
- * @param {number} value
+ * @param {number} number
  *
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const hexDigits = '0123456789abcdef';
+  const hexNumberArr = [];
+  let number = value;
+
+  do {
+    hexNumberArr.push(hexDigits[number % 16]);
+    number = Math.floor(number / 16);
+  }
+  while (number > 0);
+
+  return hexNumberArr.reverse().join('');
 }
 
 module.exports = toHex;
