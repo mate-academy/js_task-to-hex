@@ -15,7 +15,7 @@
  *
  * 50 === '32'
  *
- * @param {number} number
+ * @param {number} value
  *
  * @return {string}
  */
@@ -23,6 +23,7 @@ function toHex(value) {
   const hexDigits = '0123456789abcdef';
   const hexNumberArr = [];
   let number = value;
+  // linter doesn't allow to use value as parameter in do\while loop
 
   do {
     hexNumberArr.push(hexDigits[number % 16]);
