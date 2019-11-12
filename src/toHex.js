@@ -20,7 +20,23 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  if (value === 0) {
+    return '0';
+  }
+
+  let number = value;
+  let res = [];
+  const hexSymbols = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    'A', 'B', 'C', 'D', 'E', 'F'];
+
+  while (number > 0) {
+    res.push(hexSymbols[number % 16]);
+    number = Math.trunc(number / 16);
+  }
+
+  res = res.reverse().join('');
+
+  return res;
 }
 
 module.exports = toHex;
