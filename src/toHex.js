@@ -20,7 +20,42 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const res = [];
+  let dec = value;
+
+  if (dec === 0) {
+    return '0';
+  }
+
+  while (dec !== 0) {
+    res.push(dec % 16);
+    dec = Math.floor(dec / 16);
+  }
+
+  for (let i = 0; i < res.length; i++) {
+    switch (res[i]) {
+      case 10:
+        res[i] = 'A';
+        break;
+      case 11:
+        res[i] = 'B';
+        break;
+      case 12:
+        res[i] = 'C';
+        break;
+      case 13:
+        res[i] = 'D';
+        break;
+      case 14:
+        res[i] = 'E';
+        break;
+      case 15:
+        res[i] = 'F';
+        break;
+    }
+  }
+
+  return res.reverse().join('');
 }
 
 module.exports = toHex;
