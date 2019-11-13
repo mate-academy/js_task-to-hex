@@ -21,6 +21,19 @@
  */
 function toHex(value) {
   // write code here
+  let numberHex = '';
+  const stringHex = '0123456789abcdef';
+  let loveValue = value;
+
+  if (value === 0) {
+    return '0';
+  }
+
+  while (loveValue > 0) {
+    numberHex += stringHex[loveValue % 16];
+    loveValue = Math.floor(loveValue / 16);
+  }
+  return numberHex.split('').reverse().join('');
 }
 
 module.exports = toHex;
