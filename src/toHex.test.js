@@ -11,3 +11,8 @@ test(`Should return zero`, () => {
   expect(toHex(0).toLowerCase())
     .toBe('0');
 });
+
+test(`Should return hexadecimal number string`, () => {
+  expect(toHex(323).toLowerCase())
+    .toBe('143');
+});
