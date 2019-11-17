@@ -20,52 +20,35 @@
  * @return {string}
  */
 function toHex(value) {
-  const num1 = Math.floor(value / 16);
-  const num2 = value % 16;
-  let hex = '';
-  if ((num1 - num2) === 0) {
-    return num1 + '';
-  }
+  const hexAlphabet = {
+    0: '0',
+    1: '1',
+    2: '2',
+    3: '3',
+    4: '4',
+    5: '5',
+    6: '6',
+    7: '7',
+    8: '8',
+    9: '9',
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
+  const hexValue = [];
+  let remainder;
+  let whole = value;
 
-  if (num1 === 10) {
-    hex += 'a';
-  } else if (num1 === 11) {
-    hex += 'b';
-  } else if (num1 === 12) {
-    hex += 'c';
-  } else if (num1 === 13) {
-    hex += 'd';
-  } else if (num1 === 14) {
-    hex += 'e';
-  } else if (num1 === 15) {
-    hex += 'f';
-  }
-  for (let i = 0; i <= 9; i++) {
-    if (num1 === i) {
-      hex += i + '';
-    }
-  }
+  do {
+    remainder = whole % 16;
+    hexValue.push(hexAlphabet[remainder]);
+    whole = Math.floor(whole / 16);
+  } while (whole > 0);
 
-  if (num2 === 10) {
-    hex += 'a';
-  } else if (num2 === 11) {
-    hex += 'b';
-  } else if (num2 === 12) {
-    hex += 'c';
-  } else if (num2 === 13) {
-    hex += 'd';
-  } else if (num2 === 14) {
-    hex += 'e';
-  } else if (num2 === 15) {
-    hex += 'f';
-  }
-  for (let i = 0; i <= 9; i++) {
-    if (num2 === i) {
-      hex += i + '';
-    }
-  }
-
-  return hex;
+  return hexValue.reverse().join('');
 }
 
 module.exports = toHex;
