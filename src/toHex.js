@@ -20,7 +20,35 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const hexAlphabet = {
+    0: '0',
+    1: '1',
+    2: '2',
+    3: '3',
+    4: '4',
+    5: '5',
+    6: '6',
+    7: '7',
+    8: '8',
+    9: '9',
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
+  const hexValue = [];
+  let remainder;
+  let whole = value;
+
+  do {
+    remainder = whole % 16;
+    hexValue.push(hexAlphabet[remainder]);
+    whole = Math.floor(whole / 16);
+  } while (whole > 0);
+
+  return hexValue.reverse().join('');
 }
 
 module.exports = toHex;
