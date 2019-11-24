@@ -26,7 +26,7 @@ function toHex(value) {
   const result = [];
   let toHexNum = value;
   let num = 0;
-  while (Math.trunc(toHexNum) !== 0) {
+  while (toHexNum !== 0) {
     num = Math.trunc(toHexNum % 16);
     toHexNum = Math.trunc(toHexNum / 16);
     if (num < 10) {
