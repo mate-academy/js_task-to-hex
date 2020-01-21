@@ -19,8 +19,35 @@
  *
  * @return {string}
  */
+const hexModel = {
+  10: 'a',
+  11: 'b',
+  12: 'c',
+  13: 'd',
+  14: 'e',
+  15: 'f',
+};
+
 function toHex(value) {
-  // write code here
+  let value1 = value;
+  let integerPart = 0;
+  let remainders = [];
+
+  do {
+    integerPart = Math.trunc(value1 / 16);
+    remainders.push(value1 % 16);
+    value1 = integerPart;
+  } while (integerPart > 0);
+
+  remainders = remainders.reverse().map(elem => {
+    if (hexModel[elem]) {
+      return hexModel[elem];
+    } else {
+      return elem;
+    }
+  });
+
+  return remainders.join('');
 }
 
 module.exports = toHex;
