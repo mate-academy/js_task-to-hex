@@ -20,7 +20,20 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const hexValues = '0123456789abcdef';
+
+  if (value === 0) {
+    return '0';
+  }
+
+  if (value < 16) {
+    return '0' + hexValues[value];
+  }
+
+  const decades = hexValues[Math.floor(value / 16)];
+  const units = hexValues[value % 16];
+
+  return decades + units;
 }
 
 module.exports = toHex;
