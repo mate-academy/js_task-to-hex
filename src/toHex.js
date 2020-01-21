@@ -32,7 +32,7 @@ function toHex(value) {
     14: 'e',
     15: 'f',
   };
-  let result = '';
+  const result = [];
   let counter = value;
   const hexDivider = 16;
 
@@ -40,14 +40,14 @@ function toHex(value) {
     const reminder = counter % hexDivider;
 
     if (reminder > 9) {
-      result += hexademical[reminder];
+      result.unshift(hexademical[reminder]);
     } else {
-      result += reminder;
+      result.unshift(reminder);
     }
     counter = parseInt(counter / hexDivider);
   }
 
-  return result.split('').reverse().join('');
+  return result.join('');
 }
 
 module.exports = toHex;
