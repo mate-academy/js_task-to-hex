@@ -48,7 +48,7 @@ function toHex(value) {
     count++;
   }
 
-  return value === 0 ? '0' : [...HEX[count], HEX[value % 16]].join('');
+  return value === 0 ? '0' : [HEX[count], HEX[value % 16]].join('');
 }
 
 module.exports = toHex;
