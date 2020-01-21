@@ -20,7 +20,34 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  if (value === 0) {
+    return '0';
+  }
+
+  const hexademical = {
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
+  let result = '';
+  let counter = value;
+  const hexDivider = 16;
+
+  while (counter > 1) {
+    const reminder = counter % hexDivider;
+
+    if (reminder > 9) {
+      result += hexademical[reminder];
+    } else {
+      result += reminder;
+    }
+    counter = parseInt(counter / hexDivider);
+  }
+
+  return result.split('').reverse().join('');
 }
 
 module.exports = toHex;
