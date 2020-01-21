@@ -1,6 +1,7 @@
 'use strict';
 
 /**
+ * fs_on_dec19_salogubova
  * The function takes a number and returns
  * its hexadecimal representation as a lower
  * case string. For example 255 is converted
@@ -19,8 +20,19 @@
  *
  * @return {string}
  */
+const hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8',
+  '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+
 function toHex(value) {
-  // write code here
+  let result = '';
+  let symbols = value;
+
+  do {
+    result = hex[symbols % 16] + result;
+    symbols = parseInt(symbols / 16);
+  } while (symbols > 0);
+
+  return result;
 }
 
 module.exports = toHex;
