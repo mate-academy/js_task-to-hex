@@ -21,6 +21,40 @@
  */
 function toHex(value) {
   // write code here
+  if (value < 10) {
+    return value + '';
+  }
+
+  const result = [];
+
+  for (let i = value; i > 0; i = parseInt(i / 16, 10)) {
+    result.push(i % 16);
+  }
+
+  for (let i = 0; i < result.length; i += 1) {
+    switch (result[i]) {
+      case 10:
+        result[i] = 'a';
+        break;
+      case 11:
+        result[i] = 'b';
+        break;
+      case 12:
+        result[i] = 'c';
+        break;
+      case 13:
+        result[i] = 'd';
+        break;
+      case 14:
+        result[i] = 'e';
+        break;
+      case 15:
+        result[i] = 'f';
+        break;
+    }
+  }
+
+  return result.reverse().join('');
 }
 
 module.exports = toHex;
