@@ -20,7 +20,22 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const valueToHex = value;
+  const hexedList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+    'a', 'b', 'c', 'd', 'e', 'f'];
+
+  if (valueToHex === 0) {
+    return '0';
+  }
+
+  if (value <= 16) {
+    return hexedList[valueToHex];
+  }
+
+  const remainder = hexedList[Math.floor(valueToHex / 16)];
+  const divided = hexedList[value % 16];
+
+  return remainder + divided;
 }
 
 module.exports = toHex;
