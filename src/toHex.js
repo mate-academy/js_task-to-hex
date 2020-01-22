@@ -21,6 +21,41 @@
  */
 function toHex(value) {
   // write code here
+
+  if (value === 0) {
+    return '0';
+  }
+
+  let remainders = [];
+  let dividedValue = value;
+
+  while (dividedValue) {
+    remainders.push(dividedValue % 16);
+    dividedValue = Math.trunc(dividedValue / 16);
+  }
+
+  remainders = remainders.map(item => {
+    switch (item) {
+      case 10:
+        return 'a';
+      case 11:
+        return 'b';
+      case 12:
+        return 'c';
+      case 13:
+        return 'd';
+      case 14:
+        return 'e';
+      case 15:
+        return 'f';
+      default:
+        return item;
+    }
+  });
+
+  const hexCode = remainders.reverse().join('');
+
+  return hexCode;
 }
 
 module.exports = toHex;
