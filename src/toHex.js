@@ -21,6 +21,7 @@
  */
 function toHex(value) {
   let hex = '';
+  let resultHex = '';
   let decimal = value;
 
   if (decimal === 0) {
@@ -55,7 +56,11 @@ function toHex(value) {
     decimal = Math.trunc(decimal / 16);
   }
 
-  return hex.split('').reverse().join('');
+  for (let i = hex.length - 1; i >= 0; i--) {
+    resultHex += hex[i];
+  }
+
+  return resultHex;
 }
 
 module.exports = toHex;
