@@ -20,7 +20,38 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  let hex = '';
+  let resultHex = '';
+  let decimal = value;
+  const remaind = {
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
+
+  if (decimal === 0) {
+    return '0';
+  }
+
+  while (decimal > 0) {
+    const remainder = (decimal % 16);
+
+    if (remainder >= 10) {
+      hex += remaind[remainder];
+    } else {
+      hex += (decimal % 16);
+    }
+    decimal = Math.trunc(decimal / 16);
+  }
+
+  for (let i = hex.length - 1; i >= 0; i--) {
+    resultHex += hex[i];
+  }
+
+  return resultHex;
 }
 
 module.exports = toHex;
