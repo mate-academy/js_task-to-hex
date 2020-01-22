@@ -34,7 +34,7 @@ function toHex(value) {
     return '0';
   }
 
-  let resultReverse = '';
+  const result = [];
 
   let remainder;
   let newValue = value;
@@ -44,13 +44,13 @@ function toHex(value) {
     newValue = Math.floor(newValue / 16);
 
     if (remainder <= 9) {
-      resultReverse += remainder;
+      result.unshift(remainder);
     } else if (remainder > 9 && remainder <= 15) {
-      resultReverse += hexNumbers[remainder];
+      result.unshift(hexNumbers[remainder]);
     }
   }
 
-  return resultReverse.split('').reverse().join('');
+  return result.join('');
 }
 
 module.exports = toHex;
