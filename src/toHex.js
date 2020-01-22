@@ -35,20 +35,21 @@ function toHex(value) {
   }
 
   remainders = remainders.map(item => {
-    if (item === 10) {
-      return 'a';
-    } else if (item === 11) {
-      return 'b';
-    } else if (item === 12) {
-      return 'c';
-    } else if (item === 13) {
-      return 'd';
-    } else if (item === 14) {
-      return 'e';
-    } else if (item === 15) {
-      return 'f';
-    } else {
-      return item;
+    switch (item) {
+      case 10:
+        return 'a';
+      case 11:
+        return 'b';
+      case 12:
+        return 'c';
+      case 13:
+        return 'd';
+      case 14:
+        return 'e';
+      case 15:
+        return 'f';
+      default:
+        return item;
     }
   });
 
