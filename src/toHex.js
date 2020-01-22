@@ -23,35 +23,26 @@ function toHex(value) {
   let hex = '';
   let resultHex = '';
   let decimal = value;
+  const remaind = {
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
 
   if (decimal === 0) {
     return '0';
   }
 
   while (decimal > 0) {
-    const REMAINDER = (decimal % 16);
+    const remainder = (decimal % 16);
 
-    switch (REMAINDER) {
-      case 10:
-        hex += 'a';
-        break;
-      case 11:
-        hex += 'b';
-        break;
-      case 12:
-        hex += 'c';
-        break;
-      case 13:
-        hex += 'd';
-        break;
-      case 14:
-        hex += 'e';
-        break;
-      case 15:
-        hex += 'f';
-        break;
-      default:
-        hex += (decimal % 16);
+    if (remainder >= 10) {
+      hex += remaind[remainder];
+    } else {
+      hex += (decimal % 16);
     }
     decimal = Math.trunc(decimal / 16);
   }
