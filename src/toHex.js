@@ -19,8 +19,38 @@
  *
  * @return {string}
  */
+
+const hexNumbers = {
+  '10': 'a',
+  '11': 'b',
+  '12': 'c',
+  '13': 'd',
+  '14': 'e',
+  '15': 'f',
+};
+
 function toHex(value) {
-  // write code here
+  if (!value) {
+    return '0';
+  }
+
+  let result = '';
+
+  let remainder;
+  let newValue = value;
+
+  while (newValue > 0) {
+    remainder = newValue % 16;
+    newValue = Math.floor(newValue / 16);
+
+    if (remainder <= 9) {
+      result = remainder + result;
+    } else if (remainder > 9 && remainder <= 15) {
+      result = hexNumbers[remainder] + result;
+    }
+  }
+
+  return result;
 }
 
 module.exports = toHex;
