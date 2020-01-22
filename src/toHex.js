@@ -29,11 +29,11 @@ function toHex(value) {
   }
 
   while (myValue > 0) {
-    hxString += hexValue[myValue % 16];
+    hxString = hexValue[myValue % 16] + hxString;
     myValue = Math.floor(myValue / 16);
   }
 
-  return hxString.split('').reverse().join('');
+  return hxString;
 }
 
 module.exports = toHex;
