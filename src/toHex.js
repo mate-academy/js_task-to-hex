@@ -29,25 +29,31 @@ const hexModel = {
 };
 
 function toHex(value) {
-  let value1 = value;
-  let integerPart = 0;
-  let remainders = [];
+  let number = value;
+  let result = '';
+  let answer = '';
 
-  do {
-    integerPart = Math.trunc(value1 / 16);
-    remainders.push(value1 % 16);
-    value1 = integerPart;
-  } while (integerPart > 0);
+  if (number === 0) {
+    return '0';
+  }
 
-  remainders = remainders.reverse().map(elem => {
-    if (hexModel[elem]) {
-      return hexModel[elem];
+  while (number > 0) {
+    result += number % 16;
+    number = Math.trunc(number / 16);
+  }
+
+  for (let i = 0; i < result.length; i += 2) {
+    const num = result[i] + result[i + 1];
+
+    if (hexModel[num]) {
+      answer += hexModel[num];
     } else {
-      return elem;
+      answer += num[0];
+
+      return answer.split('').reverse().join('');
     }
-  });
+  }
 
-  return remainders.join('');
+  return answer.split('').reverse().join('');
 }
-
 module.exports = toHex;
