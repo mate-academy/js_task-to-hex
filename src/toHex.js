@@ -19,8 +19,41 @@
  *
  * @return {string}
  */
-function toHex(value) {
-  // write code here
-}
+const hexModel = {
+  10: 'a',
+  11: 'b',
+  12: 'c',
+  13: 'd',
+  14: 'e',
+  15: 'f',
+};
 
+function toHex(value) {
+  let number = value;
+  let result = '';
+  let answer = '';
+
+  if (number === 0) {
+    return '0';
+  }
+
+  while (number > 0) {
+    result += number % 16;
+    number = Math.trunc(number / 16);
+  }
+
+  for (let i = 0; i < result.length; i += 2) {
+    const num = result[i] + result[i + 1];
+
+    if (hexModel[num]) {
+      answer += hexModel[num];
+    } else {
+      answer += num[0];
+
+      return answer.split('').reverse().join('');
+    }
+  }
+
+  return answer.split('').reverse().join('');
+}
 module.exports = toHex;
