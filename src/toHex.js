@@ -19,8 +19,21 @@
  *
  * @return {string}
  */
-function toHex(value) {
-  // write code here
+function toHex(a) {
+  if (a === 0) {
+    return '0';
+  }
+
+  let hexInString = '';
+  const mas = '0123456789abcdef';
+  let hexNumber = a;
+
+  while (hexNumber > 0) {
+    hexInString = mas[hexNumber % 16] + String(hexInString);
+    hexNumber = Math.floor(hexNumber / 16);
+  }
+
+  return hexInString;
 }
 
 module.exports = toHex;
