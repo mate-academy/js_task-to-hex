@@ -35,4 +35,5 @@ function toHex(a) {
 
   return hexInString;
 }
+
 module.exports = toHex;
