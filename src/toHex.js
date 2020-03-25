@@ -20,7 +20,21 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const hexStr = '0123456789abcdef';
+  let low = 0;
+  let high = 0;
+  let hex = '';
+
+  (value < 0) ? low = 0 : low = value % 16;
+  (value < 0) ? high = 0 : high = (value - low) / 16;
+
+  if (value >= 16) {
+    hex = '' + hexStr.charAt(high) + hexStr.charAt(low);
+  } else {
+    hex = '' + hexStr.charAt(low);
+  }
+
+  return hex;
 }
 
 module.exports = toHex;
