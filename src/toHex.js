@@ -20,7 +20,35 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  if (!value) {
+    return '0';
+  }
+
+  let str = '';
+  const obj = {
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
+  const reminder = value % 16;
+  const valueInt = parseInt(value / 16);
+
+  if (reminder > 9) {
+    if (valueInt > 9) {
+      str = str + obj[valueInt] + obj[reminder];
+    } else {
+      str = str + valueInt + obj[reminder];
+    }
+  } else if (reminder === 0 && valueInt > 9) {
+    str = str + obj[valueInt] + reminder;
+  } else {
+    str = str + valueInt + reminder;
+  }
+
+  return str;
 }
 
 module.exports = toHex;
