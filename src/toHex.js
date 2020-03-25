@@ -20,7 +20,24 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  if (value === 0) {
+    return '0';
+  }
+
+  const first = Math.trunc(value / 16);
+  const last = value - (first * 16);
+
+  return convert(first) + '' + convert(last);
+}
+
+function convert(num) {
+  const table = 'abcdef';
+
+  if (num > 9) {
+    return table[num - 10];
+  }
+
+  return num;
 }
 
 module.exports = toHex;
