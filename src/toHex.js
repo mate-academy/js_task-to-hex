@@ -26,7 +26,7 @@ function toHex(value) {
   const remainder = hex[value % encode];
 
   if (value !== 0) {
-    return `${partOfNumber + remainder}`;
+    return `${partOfNumber}${remainder}`;
   } else {
     return '0';
   }
