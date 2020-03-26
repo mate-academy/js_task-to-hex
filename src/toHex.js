@@ -20,7 +20,22 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const literals
+  = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    'a', 'b', 'c', 'd', 'e', 'f'];
+
+  let hexCode = '';
+  let res = value;
+
+  do {
+    const divisionedValus = res / 16;
+    const remainder = (res - (Math.trunc(divisionedValus) * 16));
+
+    hexCode = hexCode + literals[remainder];
+    res = Math.trunc(divisionedValus);
+  } while (res > 0);
+
+  return hexCode.split('').reverse().join('');
 }
 
 module.exports = toHex;
