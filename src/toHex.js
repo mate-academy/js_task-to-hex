@@ -20,7 +20,38 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  if (value === 0) {
+    return '0';
+  }
+
+  const hexLetters = {
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
+
+  let hexColor = '';
+
+  const hexSixteenth = Math.floor(value / 16);
+
+  if (hexSixteenth < 10) {
+    hexColor += hexSixteenth;
+  } else {
+    hexColor += hexLetters[hexSixteenth];
+  }
+
+  const hexOnes = value % 16;
+
+  if (hexOnes < 10) {
+    hexColor += hexOnes;
+  } else {
+    hexColor += hexLetters[hexOnes];
+  }
+
+  return hexColor;
 }
 
 module.exports = toHex;
