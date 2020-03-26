@@ -20,7 +20,16 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const encode = 16;
+  const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+  const partOfNumber = hex[Math.floor(value / encode)];
+  const remainder = hex[value % encode];
+
+  if (value !== 0) {
+    return `${partOfNumber + remainder}`;
+  } else {
+    return '0';
+  }
 }
 
 module.exports = toHex;
