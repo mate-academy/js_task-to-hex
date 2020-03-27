@@ -21,10 +21,31 @@
  */
 function toHex(value) {
   // write code here
+  const parse = (number) => {
+    switch (number) {
+      case 15 :
+        return "f";
+      case 14 :
+        return "e";
+      case 13 :
+        return "d";
+      case 12 :
+        return "c";
+      case 11 :
+        return "b";
+      case 10 :
+        return "a";
+      default:
+        return number;
+    }
+  }
+  let result = "";
   if (value < 0 || value > 255) {
     return undefined;
+  } else if (value < 16) {
+    return result + parse(value);
   } else {
-    return value.toString(16);
+    return result + parse(Math.trunc(value / 16)) + parse(value % 16);
   }
 }
 
