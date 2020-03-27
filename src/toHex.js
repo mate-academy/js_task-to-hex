@@ -21,6 +21,35 @@
  */
 function toHex(value) {
   // write code here
+  const hexNum = {
+    10: 'a', 11: 'b', 12: 'c', 13: 'd', 14: 'e', 15: 'f',
+  };
+
+  let num10 = value;
+  const resArr = [];
+  let res = '';
+
+  while (true) {
+    resArr.unshift(num10 % 16);
+
+    if (num10 % 16 === num10) {
+      break;
+    }
+
+    num10 = Math.trunc(num10 / 16);
+  }
+
+  for (let i = 0; i < resArr.length; i++) {
+    if (resArr[i] < 10) {
+      resArr[i] += '';
+    } else {
+      resArr[i] = hexNum[resArr[i]];
+    }
+
+    res += resArr[i];
+  }
+
+  return res;
 }
 
 module.exports = toHex;
