@@ -41,12 +41,10 @@ function toHex(value) {
 
   for (let i = 0; i < resArr.length; i++) {
     if (resArr[i] < 10) {
-      resArr[i] += '';
+      res += (resArr[i] + '');
     } else {
-      resArr[i] = hexNum[resArr[i]];
+      res += hexNum[resArr[i]];
     }
-
-    res += resArr[i];
   }
 
   return res;
