@@ -20,7 +20,27 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  if (value === 0) {
+    return '0';
+  }
+
+  const firstHex = Math.trunc(value / 16);
+  const secondHex = ((value / 16) - firstHex) * 16;
+
+  return `${hexNumberConverter(firstHex)}${hexNumberConverter(secondHex)}`;
+}
+
+function hexNumberConverter(num) {
+  const toHexString = {
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
+
+  return num > 9 ? toHexString[num] : num;
 }
 
 module.exports = toHex;
