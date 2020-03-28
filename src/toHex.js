@@ -20,7 +20,10 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
-}
+  let hex = Number(value).toString(16);
 
+  hex = hex.substr(0, 6 - hex.length) + hex;
+
+  return hex;
+}
 module.exports = toHex;
