@@ -20,6 +20,7 @@
  * @return {string}
  */
 function toHex(value) {
+  // write code here
   let remainders = [];
   let hexadecimalRepresentation = {
     10: 'a',
@@ -31,14 +32,18 @@ function toHex(value) {
   }
   for (let i = 0; ; i++) {
     if (Math.floor(value / 16) === 0) {
+      if( value % 16 >= 10) {
+        remainders.unshift(hexadecimalRepresentation[`${value}`]);
+        break;
+      }
       remainders.unshift(value % 16);
       break;
     }
     value % 16 >= 10 ? remainders.unshift(hexadecimalRepresentation[`${value % 16}`]) : remainders.unshift(value % 16);
     value = Math.floor(value / 16);
   }
-  
-  return remainders.join("");
+
+  return remainders.join('');
 }
 
 module.exports = toHex;
