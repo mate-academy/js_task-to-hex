@@ -20,7 +20,6 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
   let remainders = [];
   let hexadecimalRepresentation = {
     10: 'a',
