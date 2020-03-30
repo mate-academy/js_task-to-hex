@@ -20,7 +20,16 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const letter = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    'a', 'b', 'c', 'd', 'e', 'f'];
+  const hexFloor = letter[Math.floor(value / 16)];
+  const hexReminder = letter[value % 16];
+
+  if (value === 0) {
+    return '0';
+  } else {
+    return '' + hexFloor + hexReminder;
+  }
 }
 
 module.exports = toHex;
