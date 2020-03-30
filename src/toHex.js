@@ -20,7 +20,18 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+
+  if (value >= 0 && value <= 255) {
+    if (value < 16) {
+      return hex[value].toString().toLowerCase();
+    } else {
+      // eslint-disable-next-line max-len
+      return hex[Math.floor(value / 16)].toString().toLowerCase() + hex[value % 16].toString().toLowerCase();
+    }
+  } else {
+    return undefined;
+  }
 }
 
 module.exports = toHex;
