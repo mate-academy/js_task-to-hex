@@ -20,7 +20,24 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  let numeric = value;
+  let remainders = [];
+  const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+
+  if (numeric === 0) {
+    return '0';
+  }
+
+  while (numeric > 0) {
+    remainders.push(numeric % 16);
+    numeric = Math.floor(numeric / 16);
+  }
+
+  remainders = remainders.map(function(item) {
+    return hex[item];
+  }).reverse().join('');
+
+  return remainders;
 }
 
 module.exports = toHex;
