@@ -8,6 +8,11 @@ test(`Should return hexadecimal number string`, () => {
 });
 
 test(`Should return zero`, () => {
-  expect(toHex(0).toLowerCase())
-    .toBe('0');
+  expect(toHex(1651).toLowerCase())
+    .toBe('673');
+});
+
+test(`Should return zero`, () => {
+  expect(toHex(3215).toLowerCase())
+    .toBe('c8f');
 });

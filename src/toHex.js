@@ -27,32 +27,27 @@
  * @return {string}
  */
 function toHex(value) {
-  let Hex = '';
-  const systemTo16 = [0, 1, 2, 3, 4, 5, 6, 7, 8,
-    9, 'A', 'B', 'C', 'D', 'E', 'F'];
-
-  const convertToLetter = function(element) {
-    if (element > 9) {
-      // eslint-disable-next-line no-param-reassign
-      element = systemTo16[element];
-    }
-
-    return element;
+  let elements = value;
+  const restArr = [];
+  let hex = '';
+  const hexElem = {
+    10: 'a', 11: 'b', 12: 'c', 13: 'd', 14: 'e', 15: 'f',
   };
-  let intPart = 0;
-  let floatPart = 0;
 
-  if (value === 0) {
-    return '0';
+  while (true) {
+    restArr.unshift(elements % 16);
+
+    if (elements % 16 === elements) {
+      break;
+    }
+    elements = Math.trunc(elements / 16);
   }
-  intPart = (value - (value % 16)) / 16;
-  intPart = convertToLetter(intPart);
-  Hex += intPart + '';
-  floatPart = (value % 16);
-  floatPart = convertToLetter(floatPart);
-  Hex += floatPart + '';
 
-  return Hex;
+  for (let i = 0; i < restArr.length; i++) {
+    restArr[i] < 10 ? hex += (restArr[i] + '') : hex += hexElem[restArr[i]];
+  }
+
+  return hex;
 }
 
 module.exports = toHex;
