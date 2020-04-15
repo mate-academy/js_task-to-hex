@@ -20,7 +20,38 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const result = [];
+  let number = value;
+  let remainder;
+
+  while (number !== 0) {
+    remainder = number % 16;
+    result.push(convertDigit(remainder));
+    number = (number - remainder) / 16;
+  }
+
+  return result.reverse().join('') || '0';
 }
+
+const convertDigit = digit => {
+  if (digit < 10) {
+    return digit + '';
+  }
+
+  switch (digit) {
+    case 10:
+      return 'a';
+    case 11:
+      return 'b';
+    case 12:
+      return 'c';
+    case 13:
+      return 'd';
+    case 14:
+      return 'e';
+    case 15:
+      return 'f';
+  }
+};
 
 module.exports = toHex;
