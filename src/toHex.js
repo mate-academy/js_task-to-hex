@@ -20,7 +20,13 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const number = 16;
+  const hexadecimal = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+    'a', 'b', 'c', 'd', 'e', 'f'];
+  const firstSymbolOfHex = hexadecimal[Math.floor(value / number)];
+  const hex = hexadecimal[value % number];
+
+  return value === 0 ? `${value}`.slice(-1) : `${firstSymbolOfHex}${hex}`;
 }
 
 module.exports = toHex;
