@@ -21,6 +21,42 @@
  */
 function toHex(value) {
   // write code here
+  if (value === 0) {
+    return '0';
+  }
+
+  let result = '';
+  let innerValue = value;
+
+  while (innerValue % 16 !== 0) {
+    const num = innerValue % 16;
+
+    switch (num) {
+      case 10:
+        result = 'a' + result;
+        break;
+      case 11:
+        result = 'b' + result;
+        break;
+      case 12:
+        result = 'c' + result;
+        break;
+      case 13:
+        result = 'd' + result;
+        break;
+      case 14:
+        result = 'e' + result;
+        break;
+      case 15:
+        result = 'f' + result;
+        break;
+      default:
+        result = num + result;
+    }
+    innerValue = Math.trunc(innerValue / 16);
+  }
+
+  return result;
 }
 
 module.exports = toHex;
