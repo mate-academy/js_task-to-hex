@@ -21,16 +21,16 @@
  */
 function toHex(value) {
   const hexArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
-  let rem = value;
-  let hex = '';
+  let remainder = value;
+  let hexString = '';
 
-  while (rem > 16) {
-    const devide = Math.floor(rem / 16);
+  while (remainder > 16) {
+    const devide = Math.floor(remainder / 16);
 
-    rem = rem % 16;
-    hex += hexArr[devide];
+    remainder = remainder % 16;
+    hexString += hexArr[devide];
   }
 
-  return hex + hexArr[rem];
+  return hexString + hexArr[remainder];
 }
 module.exports = toHex;
