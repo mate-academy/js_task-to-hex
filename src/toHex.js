@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 'use strict';
 
 /**
@@ -20,7 +21,23 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const colors = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+  const base = 16;
+  const result = [];
+  let newValue = value;
+
+  if (newValue === 0) {
+    return '0';
+  } else {
+    while (newValue !== 0) {
+      const remainder = newValue % base;
+
+      result.push(colors[remainder]);
+      newValue = Math.floor(newValue / base);
+    }
+  }
+
+  return result.reverse().join('');
 }
 
 module.exports = toHex;
