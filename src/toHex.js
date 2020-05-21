@@ -20,7 +20,42 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  let number = value;
+  const reminderArr = [];
+  const hexCode = {
+    0: '0',
+    1: '1',
+    2: '2',
+    3: '3',
+    4: '4',
+    5: '5',
+    6: '6',
+    7: '7',
+    8: '8',
+    9: '9',
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
+  let strHex = '';
+
+  while (number > 0) {
+    reminderArr.unshift(number % 16);
+    number = Math.floor(number / 16);
+  }
+
+  if (reminderArr.length === 0) {
+    return '0';
+  }
+
+  for (let i = 0; i < reminderArr.length; i++) {
+    strHex += hexCode[reminderArr[i]];
+  }
+
+  return strHex;
 }
 
 module.exports = toHex;
