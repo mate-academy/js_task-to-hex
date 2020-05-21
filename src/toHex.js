@@ -20,7 +20,40 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  let hex = '';
+  let num;
+
+  if (value === 0) {
+    return '0';
+  }
+  num = value / 16 >> 0;
+  hex += num;
+  num = value % 16;
+
+  switch (num) {
+    case 10:
+      num = 'a';
+      break;
+    case 11:
+      num = 'b';
+      break;
+    case 12:
+      num = 'c';
+      break;
+    case 13:
+      num = 'd';
+      break;
+    case 14:
+      num = 'e';
+      break;
+    case 15:
+      num = 'f';
+      break;
+    default:
+  }
+  hex += num;
+
+  return hex;
 }
 
 module.exports = toHex;
