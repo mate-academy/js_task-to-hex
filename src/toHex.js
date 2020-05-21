@@ -20,7 +20,15 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  if (value < 0) {
+    return '0';
+  }
+
+  if (value > 255) {
+    return 'ff';
+  }
+
+  return (Number(value).toString(16)).slice(-2);
 }
 
 module.exports = toHex;
