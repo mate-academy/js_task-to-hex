@@ -19,8 +19,36 @@
  *
  * @return {string}
  */
+
 function toHex(value) {
-  return value.toString(16);
+  const hexValue = {
+    0: '0',
+    1: '1',
+    2: '2',
+    3: '3',
+    4: '4',
+    5: '5',
+    6: '6',
+    7: '7',
+    8: '8',
+    9: '9',
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
+
+  let temp = value;
+  let str = '';
+
+  while (temp > 0) {
+    str = hexValue[temp % 16] + str;
+    temp = ~~(temp / 16);
+  }
+
+  return str.length !== 0 ? str : '0';
 }
 
 module.exports = toHex;
