@@ -20,7 +20,35 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const temp = [];
+  let remainder = value;
+
+  while (remainder > 16) {
+    temp.push(remainder % 16);
+    remainder = Math.floor(remainder / 16);
+  }
+  temp.push(remainder % 16);
+
+  if (Math.floor(remainder / 16) > 0) {
+    temp.push(Math.floor(remainder / 16));
+  }
+
+  const hexObj = {
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
+
+  for (let i = 0; i < temp.length; i++) {
+    if (temp[i] in hexObj) {
+      temp[i] = hexObj[temp[i]];
+    }
+  }
+
+  return temp.reverse().join('');
 }
 
 module.exports = toHex;
