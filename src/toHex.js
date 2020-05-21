@@ -21,6 +21,20 @@
  */
 function toHex(value) {
   // write code here
+  if (value === 0) {
+    return '0';
+  }
+
+  const hexNumbers = '0123456789abcdef';
+
+  if (value < 16) {
+    return hexNumbers[value];
+  }
+
+  const numOne = hexNumbers[Math.floor(value / 16)];
+  const numTwo = hexNumbers[value % 16];
+
+  return `${numOne}${numTwo}`;
 }
 
 module.exports = toHex;
