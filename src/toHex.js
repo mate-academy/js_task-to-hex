@@ -20,7 +20,17 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
-}
+  const hexArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+  let remainder = value;
+  let hexString = '';
 
+  while (remainder > 16) {
+    const devide = Math.floor(remainder / 16);
+
+    remainder = remainder % 16;
+    hexString += hexArr[devide];
+  }
+
+  return hexString + hexArr[remainder];
+}
 module.exports = toHex;
