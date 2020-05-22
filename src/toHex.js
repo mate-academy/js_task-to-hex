@@ -41,10 +41,10 @@ function toHex(value) {
   };
   const remainder = value % 16;
 
-  const newvalue = Math.floor(value / 16);
+  const newValue = Math.floor(value / 16);
 
-  if (newvalue > 0) {
-    hex = toHex(newvalue);
+  if (newValue > 0) {
+    hex = toHex(newValue);
   }
 
   return hex + hexTable[remainder];
