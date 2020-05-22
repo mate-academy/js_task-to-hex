@@ -20,7 +20,41 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  if (value === 0) {
+    return '0';
+  }
+
+  const remainder = [];
+  let digit = value;
+
+  const alphabet = {
+    '10': 'A',
+    '11': 'B',
+    '12': 'C',
+    '13': 'D',
+    '14': 'E',
+    '15': 'F',
+  };
+
+  while (digit > 0) {
+    if (digit % 16 > 0) {
+      remainder.push((digit % 16));
+    }
+
+    digit = Math.floor(digit / 16);
+  }
+
+  const str = remainder.map((item) => {
+    if (item >= 10) {
+      const convertion = alphabet[item];
+
+      return convertion;
+    }
+
+    return item;
+  }).reverse().join('');
+
+  return str;
 }
 
 module.exports = toHex;
