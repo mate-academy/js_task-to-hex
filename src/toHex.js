@@ -21,6 +21,35 @@
  */
 function toHex(value) {
   // write code here
+  const mapTable = new Map([
+    [10, 'a'],
+    [11, 'b'],
+    [12, 'c'],
+    [13, 'd'],
+    [14, 'e'],
+    [15, 'f']
+  ]);
+  let hexValue = '';
+  let hexValueReversed = '';
+  let wholePart = value;
+
+  do {
+    const remainder = wholePart % 16;
+
+    if (remainder < 10) {
+      hexValue += remainder;
+    } else {
+      hexValue += mapTable.get(remainder);
+    }
+
+    wholePart = Math.floor(wholePart / 16);
+  } while (wholePart);
+
+  for (let i = hexValue.length - 1; i >= 0; i--) {
+    hexValueReversed += hexValue[i];
+  }
+
+  return hexValueReversed;
 }
 
 module.exports = toHex;
