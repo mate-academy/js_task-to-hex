@@ -30,7 +30,8 @@ function toHex(value) {
     devided = value / 16;
   }
 
-  return `${getHex(~~devided)}${getHex((devided - ~~devided) * 16)}`;
+  return `${getHex(Math.floor(devided))}
+    ${getHex((devided - Math.floor(devided)) * 16)}`;
 }
 
 function getHex(num) {
