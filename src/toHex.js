@@ -20,7 +20,19 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  let number = value;
+  let hexNumber = '';
+
+  const hexArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+
+  while (number > 16) {
+    const firstNumber = Math.trunc(number / 16);
+
+    number = number % 16;
+    hexNumber += hexArray[firstNumber];
+  }
+
+  return hexNumber + hexArray[number];
 }
 
 module.exports = toHex;
