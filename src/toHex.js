@@ -20,7 +20,20 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const hexLetters = { 10: 'a', 11: 'b', 12: 'c', 13: 'd', 14: 'e', 15: 'f' };
+  let wholePart = value;
+  let hexNumber = '';
+
+  do {
+    const remainder = wholePart % 16;
+    wholePart = ((wholePart - remainder) / 16);
+
+    (remainder > 9)
+      ? hexNumber = hexLetters[remainder] + hexNumber
+      : hexNumber = remainder + hexNumber;
+  } while (wholePart > 0);
+
+  return hexNumber;
 }
 
 module.exports = toHex;
