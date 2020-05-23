@@ -20,7 +20,31 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
-}
+  const hex = {
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
 
+  let secondDigit = value % 16;
+
+  if (secondDigit >= 10) {
+    secondDigit = hex[secondDigit];
+  }
+
+  if (value < 16) {
+    return `${secondDigit}`;
+  }
+
+  let firstDigit = Math.floor(value / 16) % 16;
+
+  if (firstDigit >= 10) {
+    firstDigit = hex[firstDigit];
+  }
+
+  return `${firstDigit}${secondDigit}`;
+}
 module.exports = toHex;
