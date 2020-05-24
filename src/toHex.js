@@ -21,6 +21,39 @@
  */
 function toHex(value) {
   // write code here
+  const hexLetters = {
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
+
+  let num = value;
+  let rest = 0;
+  let result = 0;
+  const hexArr = [];
+
+  if (value === 0) {
+    return '0';
+  }
+
+  while (num > 0) {
+    rest = num % 16;
+    result = num / 16;
+    result = Math.trunc(result);
+
+    for (let j = 10; j <= 15; j++) {
+      if (rest === j) {
+        rest = hexLetters[j];
+      }
+    }
+    hexArr.push(rest);
+    num = result;
+  }
+
+  return hexArr.reverse().join('');
 }
 
 module.exports = toHex;
