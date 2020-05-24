@@ -21,6 +21,10 @@
  */
 
 function toHex(value) {
+  if (value === 0) {
+    return '0';
+  }
+
   const hexValue = {
     10: 'a',
     11: 'b',
@@ -42,7 +46,7 @@ function toHex(value) {
     temp = ~~(temp / 16);
   }
 
-  return hexString.length !== 0 ? hexString : '0';
+  return hexString;
 }
 
 module.exports = toHex;
