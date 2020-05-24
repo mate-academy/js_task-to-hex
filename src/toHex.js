@@ -19,8 +19,34 @@
  *
  * @return {string}
  */
+
 function toHex(value) {
-  // write code here
+  if (value === 0) {
+    return '0';
+  }
+
+  const hexValue = {
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
+
+  let temp = value;
+  let hexString = '';
+  let hexNumber;
+  let modulo;
+
+  while (temp > 0) {
+    modulo = temp % 16;
+    hexNumber = modulo >= 10 ? hexValue[modulo] : modulo;
+    hexString = hexNumber + hexString;
+    temp = ~~(temp / 16);
+  }
+
+  return hexString;
 }
 
 module.exports = toHex;
