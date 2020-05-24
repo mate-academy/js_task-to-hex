@@ -22,16 +22,6 @@
 
 function toHex(value) {
   const hexValue = {
-    0: '0',
-    1: '1',
-    2: '2',
-    3: '3',
-    4: '4',
-    5: '5',
-    6: '6',
-    7: '7',
-    8: '8',
-    9: '9',
     10: 'a',
     11: 'b',
     12: 'c',
@@ -41,14 +31,18 @@ function toHex(value) {
   };
 
   let temp = value;
-  let str = '';
+  let hexString = '';
+  let hexNumber;
+  let modulo;
 
   while (temp > 0) {
-    str = hexValue[temp % 16] + str;
+    modulo = temp % 16;
+    hexNumber = modulo >= 10 ? hexValue[modulo] : modulo;
+    hexString = hexNumber + hexString;
     temp = ~~(temp / 16);
   }
 
-  return str.length !== 0 ? str : '0';
+  return hexString.length !== 0 ? hexString : '0';
 }
 
 module.exports = toHex;
