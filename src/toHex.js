@@ -26,19 +26,16 @@ function toHex(value) {
 
   if (valueModifire === 0) {
     return '0';
-  } else {
-    while (valueModifire > 0) {
-      const remainder = valueModifire % 16;
+  }
 
-      hex.push(hexValue[remainder]);
-      valueModifire = Math.floor(valueModifire / 16);
-    }
+  while (valueModifire > 0) {
+    const remainder = valueModifire % 16;
+
+    hex.push(hexValue[remainder]);
+    valueModifire = Math.floor(valueModifire / 16);
   }
 
   return hex.reverse().join('');
 }
-
-// eslint-disable-next-line no-console
-console.log(toHex(256));
 
 module.exports = toHex;
