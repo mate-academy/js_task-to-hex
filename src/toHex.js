@@ -20,7 +20,23 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const colors = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+  const base = 16;
+  const hex = [];
+  let newValue = value;
+
+  if (newValue === 0) {
+    return '0';
+  } else {
+    while (newValue !== 0) {
+      const remainder = newValue % base;
+
+      hex.push(colors[remainder]);
+      newValue = Math.floor(newValue / base);
+    }
+  }
+
+  return hex.reverse().join('');
 }
 
 module.exports = toHex;
