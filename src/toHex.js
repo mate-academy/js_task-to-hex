@@ -20,7 +20,25 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const hexValue = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+  const hex = [];
+  let valueModifire = value;
+
+  if (valueModifire === 0) {
+    return '0';
+  } else {
+    while (valueModifire > 0) {
+      const remainder = valueModifire % 16;
+
+      hex.push(hexValue[remainder]);
+      valueModifire = Math.floor(valueModifire / 16);
+    }
+  }
+
+  return hex.reverse().join('');
 }
+
+// eslint-disable-next-line no-console
+console.log(toHex(256));
 
 module.exports = toHex;
