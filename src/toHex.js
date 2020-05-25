@@ -24,7 +24,7 @@ function toHex(value) {
   const firstPart = Math.floor(value / 16);
   const secondPart = value % 16;
 
-  return hexSigns[firstPart] + hexSigns[secondPart] + '';
+  return value === 0 ? '0' : '' + hexSigns[firstPart] + hexSigns[secondPart];
 }
 
 module.exports = toHex;
