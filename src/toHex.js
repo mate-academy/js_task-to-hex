@@ -20,7 +20,39 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const tempValue = value;
+  let hexStr = '';
+
+  const hexNumbers = {
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
+
+  if (tempValue === 0) {
+    return '0';
+  }
+
+  if (tempValue > 15) {
+    const hexCharFirst = Math.floor(tempValue / 16) > 9
+      ? hexNumbers[Math.floor(tempValue / 16)] + ''
+      : Math.floor(tempValue / 16) + '';
+
+    const hexCharSecond = tempValue % 16 > 9
+      ? hexNumbers[tempValue % 16] + ''
+      : tempValue % 16 + '';
+
+    hexStr = hexCharFirst + hexCharSecond;
+  } else {
+    hexStr = tempValue % 16 > 9
+      ? hexNumbers[tempValue % 16]
+      : tempValue % 16 + '';
+  }
+
+  return hexStr;
 }
 
 module.exports = toHex;
