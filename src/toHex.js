@@ -27,13 +27,13 @@ function toHex(value) {
 
   if (newValue === 0) {
     return '0';
-  } else {
-    while (newValue !== 0) {
-      const remainder = newValue % base;
+  }
 
-      hex.push(colors[remainder]);
-      newValue = Math.floor(newValue / base);
-    }
+  while (newValue !== 0) {
+    const remainder = newValue % base;
+
+    hex.push(colors[remainder]);
+    newValue = Math.floor(newValue / base);
   }
 
   return hex.reverse().join('');
