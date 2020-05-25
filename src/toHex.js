@@ -52,5 +52,4 @@ function getSmallHex(value) {
   return hexValue;
 }
 
-toHex(0);
 module.exports = toHex;
