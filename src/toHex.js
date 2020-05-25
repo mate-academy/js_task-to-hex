@@ -20,7 +20,11 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const hexSigns = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+  const firstPart = Math.floor(value / 16);
+  const secondPart = value % 16;
+
+  return hexSigns[firstPart] + hexSigns[secondPart] + '';
 }
 
 module.exports = toHex;
