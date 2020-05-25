@@ -38,18 +38,18 @@ function toHex(value) {
 
   if (tempValue > 15) {
     const hexCharFirst = Math.floor(tempValue / 16) > 9
-      ? hexNumbers[Math.floor(tempValue / 16)]
-      + '' : Math.floor(tempValue / 16) + '';
+      ? hexNumbers[Math.floor(tempValue / 16)] + ''
+      : Math.floor(tempValue / 16) + '';
 
     const hexCharSecond = tempValue % 16 > 9
-      ? hexNumbers[tempValue % 16]
-      + '' : tempValue % 16 + '';
+      ? hexNumbers[tempValue % 16] + ''
+      : tempValue % 16 + '';
 
     hexStr = hexCharFirst + hexCharSecond;
   } else {
     hexStr = tempValue % 16 > 9
       ? hexNumbers[tempValue % 16]
-      + '' : tempValue % 16 + '';
+      : tempValue % 16 + '';
   }
 
   return hexStr;
