@@ -21,10 +21,15 @@
  */
 function toHex(value) {
   const hexSigns = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+
+  if (value > 255) {
+    return 'ff';
+  }
+
   const firstPart = Math.floor(value / 16);
   const secondPart = value % 16;
 
-  return value === 0 ? '0' : '' + hexSigns[firstPart] + hexSigns[secondPart];
+  return value <= 0 ? '0' : '' + hexSigns[firstPart] + hexSigns[secondPart];
 }
 
 module.exports = toHex;
