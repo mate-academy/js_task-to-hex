@@ -20,8 +20,24 @@
  * @return {string}
  */
 function toHex(value) {
-  // eslint-disable-next-line
-  const hexSymbols = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+  const hexSymbols = [
+    '0',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f'];
+
   let decimal = value;
   const hexNumber = [];
   let i = 0;
