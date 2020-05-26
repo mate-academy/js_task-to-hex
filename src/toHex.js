@@ -20,7 +20,17 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const hexValue = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+  const hexResult = [];
+
+  if (value === 0) {
+    return '0';
+  }
+
+  hexResult.push(hexValue[Math.floor(value / 16)]);
+  hexResult.push(hexValue[value % 16]);
+
+  return hexResult.join('');
 }
 
 module.exports = toHex;
