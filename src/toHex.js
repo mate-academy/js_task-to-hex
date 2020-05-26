@@ -37,7 +37,7 @@ function toHex(value) {
     15: 'f',
   };
 
-  while (number > 1) {
+  while (number >= 1) {
     remainder = number % 16;
     number = Math.floor(number / 16);
 
