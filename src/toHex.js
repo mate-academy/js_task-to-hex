@@ -20,7 +20,36 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const hexSymbols = [
+    '0',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f'];
+
+  let decimal = value;
+  const hexNumber = [];
+  let i = 0;
+
+  while (decimal > 16) {
+    hexNumber[i] = hexSymbols[Math.floor(decimal / 16)];
+    decimal = decimal % 16;
+    i++;
+  }
+  hexNumber[i] = hexSymbols[Math.floor(decimal)];
+
+  return hexNumber.join('');
 }
 
 module.exports = toHex;
