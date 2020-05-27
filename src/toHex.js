@@ -5,33 +5,26 @@ function toHex(value) {
     return '0';
   }
 
-  function toHexNumber(number) {
-    switch (number) {
-      case 10:
-        return 'a';
+  const hexNumbers = {
+    1: '1',
+    2: '2',
+    3: '3',
+    4: '4',
+    5: '5',
+    6: '6',
+    7: '7',
+    8: '8',
+    9: '9',
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
 
-      case 11:
-        return 'b';
-
-      case 12:
-        return 'c';
-
-      case 13:
-        return 'd';
-
-      case 14:
-        return 'e';
-
-      case 15:
-        return 'f';
-
-      default:
-        return number + '';
-    }
-  }
-
-  const firstHexNumber = toHexNumber(Math.floor(value / 16));
-  const secondtHexNumber = toHexNumber(value % 16);
+  const firstHexNumber = hexNumbers[Math.floor(value / 16)];
+  const secondtHexNumber = hexNumbers[value % 16];
 
   return firstHexNumber + secondtHexNumber;
 }
