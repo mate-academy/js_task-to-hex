@@ -58,5 +58,4 @@ function toHex(value) {
 
   return outPutHex;
 }
-// console.log(toHex(1456));
 module.exports = toHex;
