@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function toHex(value) {
+    let result = 0;
+    for (let i = 0; i < value / 16; i++) {
+      if (value % 16 === 10) {
+        result = i + 'a';
+      } else if (value % 16 === 11) {
+        result = i + 'b';
+      } else if (value % 16 === 12) {
+        result = i + 'c';
+      } else if (value % 16 === 13) {
+        result = i + 'd';
+      } else if (value % 16 === 14) {
+        result = i + 'e';
+      } else if (value % 16 === 15) {
+        result = i + 'f';
+      } else {
+        result = 0;
+      }
+    }
+    return result;
+  }
+
+  console.log(toHex('0'))
+
+
+
+</script>
+</body>
+</html>
