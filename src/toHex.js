@@ -20,7 +20,13 @@
  * @return {string}
  */
 function toHex(value) {
-  // write code here
+  const digitHex = '0123456789abcdef';
+  const floorNum = Math.floor(value / 16);
+  if (value > 16) {
+    return `${digitHex[floorNum]}${digitHex[value % 16]}`;
+  } else {
+    return digitHex[value / 16];
+  }
 }
 
 module.exports = toHex;
